@@ -140,7 +140,7 @@ class TestScalaMultiVersionPlugin extends GroovyTestCase implements SimpleProjec
         def root = new XmlSlurper().parseText(pomXml)
         assert root.dependencies.'*'.find { it.artifactId == "scala-library" }.version.text() == '2.12.1'
         assert root.dependencies.'*'.find { it.artifactId == "fake-scala-dep_2.12" } != null
-        assert root.artifactId.text() == "codeProject_2.12"
+        assert root.artifactId.text() == "codeProject"
     }
 
     void testRunOnceTasks() {
