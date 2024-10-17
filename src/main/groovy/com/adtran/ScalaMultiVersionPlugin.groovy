@@ -279,7 +279,7 @@ class ScalaMultiVersionPlugin implements Plugin<Project> {
     private void resolvePomDependencies() {
         project.afterEvaluate {
             // for projects using the maven-publish plugin
-            Boolean addScalaSuffix = project.ext.OrDefault("addScalaSuffix", true)
+            String addScalaSuffix = project.ext.OrDefault("addScalaSuffix", "true")
             if (project.plugins.hasPlugin("maven-publish") && addScalaSuffix) {
                 project.publishing.publications.withType(MavenPublication) {
                     pom.withXml { resolveMavenPomDependencies(it) }
